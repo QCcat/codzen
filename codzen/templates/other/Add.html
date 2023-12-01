@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block title %}Добавить{% endblock %}
+{% block content %}
+<section>
+
+    <form action="/upload/" method="post">
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Преподаватель</label>
+        <select class="form-select" id="inputGroupSelect01">
+          <!-- <option selected></option> -->
+          {% for prepods in context %}
+            <option value="{{prepods}}">{{prepods}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-text">Название и теги</span>
+        <input type="text" required placeholder="Название" aria-label="Name" class="form-control">
+        <input type="text" required placeholder="Теги" aria-label="Tags" class="form-control">
+      </div>      
+      <br>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile01">Файлы</label>
+        <input name="filee" required  type="file" class="form-control" id="inputGroupFile01" multiple accept="all">
+      </div>
+      <button class="btn btn-outline-success" id="button", type="submit">Добавить</button>
+
+    </form>
+</section>
+{% endblock %}
